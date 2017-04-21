@@ -17,15 +17,11 @@ body {
 .square {
   width: 100px;
   height: 100px;
-  padding-top: 5px;
-  font-size: 3em;
+  font-size: 4em;
   float: left;
-  /*margin: 2px;*/
-}
-
-img {
-  width: 90px;
-  height: 90px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .board {
@@ -46,6 +42,8 @@ img {
   background-color: rgba(0,0,0,.95);
   transition: all 1s;
   z-index: 5;
+  border-radius: 15px;
+  border: 1px solid rgba(255,255,255,.9);
 }
 
 .active {
@@ -61,37 +59,41 @@ img {
   color: #FFF;
 }
 
+.fa {
+  color: #09e510;
+}
+
 .reset-button:hover {
   border-color: green;
 }
 
 #sp4, #sp5, #sp6 {
-  border-bottom: 2px solid green;
-  border-top: 2px solid green;
+  border-bottom: 2px solid #09e510;
+  border-top: 2px solid #09e510;
 }
 
 #sp2, #sp5, #sp8 {
-  border-left: 2px solid green;
-  border-right: 2px solid green;
+  border-left: 2px solid #09e510;
+  border-right: 2px solid #09e510;
+  box-shadow: 1px 0 0 0 #09e510, -1px 0 0 0 #09e510;
 }
 
 #sp2 {
-  animation: sp2 3s infinite ease-in-out;
+  /*animation: sp2 3s infinite ease-in-out;*/
 }
 
 #sp5 {
-  animation: sp5 3s infinite ease-in-out;
+  /*animation: sp5 3s infinite ease-in-out;*/
 }
 
 #sp8 {
-  animation: sp8 3s infinite ease-in-out;
+  /*animation: sp8 3s infinite ease-in-out;*/
 }
 
 
-@keyframes sp2 {
+/*@keyframes sp2 {
   from {
-    border-left: 3px solid #09e510;
-    border-right: 3px solid #09e510;
+    box-shadow: 1px 0 2px 0 1px #09e510, -1px 0 2px 0 -1px #09e510;
   }
   
   75% {
@@ -137,4 +139,4 @@ img {
     border-left: 3px solid #09e510;
     border-right: 3px solid #09e510;
   }
-}
+}*/

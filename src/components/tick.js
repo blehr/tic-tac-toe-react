@@ -1,9 +1,7 @@
 import React from 'react';
-import tickImg from '../../images/tick.jpg';
-
 
 const Tick = props => (
-  <img src={tickImg} alt="tick" />
+  <i className="fa fa-times" aria-hidden="true" />
 );
 
 export default Tick;
