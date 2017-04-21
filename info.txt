@@ -1,0 +1,79 @@
+export const winArr = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9],
+  [1, 4, 7],
+  [2, 5, 8],
+  [3, 6, 9],
+  [1, 5, 9],
+  [3, 5, 7]  
+];
+
+export const cornerSpacesIds = [1, 3, 7, 9];
+export const computerMarkArr = [];
+export const playerMarkArr = [];
+
+export const spacesArr = [
+  {
+    id: 1,
+    played: false,
+    image: '',
+    owned: null
+  },
+  {
+    id: 2,
+    played: false,
+    image: '',
+    owned: null
+  },
+  {
+    id: 3,
+    played: false,
+    image: '',
+    owned: null
+  },
+  {
+    id: 4,
+    played: false,
+    image: '',
+    owned: null
+  },
+  {
+    id: 5,
+    played: false,
+    image: '',
+    owned: null
+  },
+  {
+    id: 6,
+    played: false,
+    image: '',
+    owned: null
+  },
+  {
+    id: 7,
+    played: false,
+    image: '',
+    owned: null
+  },
+  {
+    id: 8,
+    played: false,
+    image: '',
+    owned: null
+  },
+  {
+    id: 9,
+    played: false,
+    image: '',
+    owned: null
+  }
+];
+
+export function randomChoice(arr) {
+ 
+  
+}
+
+
+

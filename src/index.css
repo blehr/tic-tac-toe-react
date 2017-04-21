@@ -1,0 +1,140 @@
+html {
+  box-sizing: border-box;
+  height: 100%;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  height: 100%;
+  background-color: #222;
+}
+
+.square {
+  width: 100px;
+  height: 100px;
+  padding-top: 5px;
+  font-size: 3em;
+  float: left;
+  /*margin: 2px;*/
+}
+
+img {
+  width: 90px;
+  height: 90px;
+}
+
+.board {
+  width: 300px;
+  height: 300px;
+  margin: auto;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.play-again {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  top: 100%;
+  color: #FFF;
+  background-color: rgba(0,0,0,.95);
+  transition: all 1s;
+  z-index: 5;
+}
+
+.active {
+  top: 0;
+}
+
+.reset-button {
+  border: 3px solid #FFF;
+  border-radius: 10px;
+  padding: 5px 8px;
+  background-color: transparent;
+  font-size: 24px;
+  color: #FFF;
+}
+
+.reset-button:hover {
+  border-color: green;
+}
+
+#sp4, #sp5, #sp6 {
+  border-bottom: 2px solid green;
+  border-top: 2px solid green;
+}
+
+#sp2, #sp5, #sp8 {
+  border-left: 2px solid green;
+  border-right: 2px solid green;
+}
+
+#sp2 {
+  animation: sp2 3s infinite ease-in-out;
+}
+
+#sp5 {
+  animation: sp5 3s infinite ease-in-out;
+}
+
+#sp8 {
+  animation: sp8 3s infinite ease-in-out;
+}
+
+
+@keyframes sp2 {
+  from {
+    border-left: 3px solid #09e510;
+    border-right: 3px solid #09e510;
+  }
+  
+  75% {
+    border-left: 2px solid #039e08;
+    border-right: 2px solid #039e08;
+  }
+  
+  to {
+    border-left: 2px solid #039e08;
+    border-right: 2px solid #039e08;
+  }
+}
+
+@keyframes sp5 {
+  from {
+    border-left: 2px solid #039e08;
+    border-right: 2px solid #039e08;
+  }
+  
+  75% {
+    border-left: 3px solid #09e510;
+    border-right: 3px solid #09e510;
+  }
+  
+  to {
+    border-left: 2px solid #039e08;
+    border-right: 2px solid #039e08;
+  }
+}
+
+@keyframes sp8 {
+  from {
+    border-left: 2px solid #039e08;
+    border-right: 2px solid #039e08;
+  }
+  
+  75% {
+    border-left: 2px solid #039e08;
+    border-right: 2px solid #039e08;
+  }
+  
+  to {
+    border-left: 3px solid #09e510;
+    border-right: 3px solid #09e510;
+  }
+}
