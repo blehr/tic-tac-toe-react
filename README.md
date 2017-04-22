@@ -1,3 +1,3 @@
-#Tic Tac Toe
+# Tic Tac Toe
 
-Built with React
+Built with React - unbeatable!
