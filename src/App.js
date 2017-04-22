@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import Board from './components/board';
 import Square from './components/square';
 import PlayAgain from './components/play_again';
@@ -84,7 +83,8 @@ const initialState = {
   computerMarkArr: [],
   playerMarkArr: [],
   tie: false,
-  win: false
+  win: false,
+  start: false
 };
 
 
@@ -96,18 +96,17 @@ class App extends Component {
     
     this.handleClick = this.handleClick.bind(this);
   }
-  
-  componentDidMount() {
-    
-    this.computerTurn();
- 
-  }
-  
+
   resetState() {
-    this.setState(initialState, this.computerTurn);
+    this.setState(Object.assign({}, initialState, { start: true }), this.computerTurn);
   }
   
-  /** returns id or empty string **/
+  startGame() {
+    this.setState({
+      start: true
+    }, this.computerTurn);
+  }
+  
   beatPlayer() {
     let tempArr = [];
     let beatPos = '';
@@ -131,8 +130,6 @@ class App extends Component {
     return beatPos;
   }
    
-   
-  /** returns id or empty string **/
   blockPlayer() {
     let tempArr = [];
     let blockPos = '';
@@ -156,7 +153,6 @@ class App extends Component {
     return blockPos;
   }
   
-  
   checkForWin(arr) {
     winArr.forEach(win => {
       if (
@@ -168,9 +164,11 @@ class App extends Component {
         this.setState({
           win: true
         });
+
       }
     });
-    if (this.state.openSpaces.length === 1) {
+    
+    if (!this.state.win && arr.length === 5) {
       this.setState({
         tie: true
       });
@@ -195,9 +193,6 @@ class App extends Component {
     return mark;
   }
 
-  
-  
-  
   computerTurn() {
     let id;
     setTimeout(() => {
@@ -224,9 +219,7 @@ class App extends Component {
     }, 1200);
    
   }
-    
-    
-
+  
   handleClick(space) {
     if (this.state.turn && !space.played) {
       const updatedSpace = Object.assign({}, space, { played: true, image: 'toe', owned: 'player' });
@@ -242,22 +235,29 @@ class App extends Component {
   }
   
   render() {
+    const { win, tie, start } = this.state;
     return (
       <div className="App">
         <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
+          <div className="tilt-header">
+            <p className="tilt-left">TIC</p>
+            <i className="fa fa-circle" aria-hidden="true"/>
+            <p className="tilt-right">TAC</p>
+            <i className="fa fa-circle" aria-hidden="true"/>
+            <p className="tilt-left">TOE</p>
+          </div>
         </div>
         <p className="App-intro">
-          
+          Please play responsibly. Keep hands and feet inside the ride at all times. May not be suitable for pregnant or nursing mothers. In case of rectal bleeding, discontinue use immediately. 
         </p>
         
         <Board>
         
           <PlayAgain
-            message={this.state.tie ? 'Tie!' : 'You Lose!'}
-            activeClass={this.state.tie || this.state.win ? 'play-again active' : 'play-again'}
-            handleClick={this.resetState.bind(this)}
+            message={tie ? 'Tie!' : win ? 'You Lose!' : 'Ready?'}
+            activeClass={tie || win || !start ? 'play-again active' : 'play-again'}
+            handleClick={!start ? this.startGame.bind(this) : this.resetState.bind(this)}
+            buttonMessage="Play"
           />
           
           {
@@ -276,6 +276,11 @@ class App extends Component {
           
           
         </Board>
+        
+        <div className="github">
+          <a href="https://github.com/blehr/tic-tac-toe-react" >
+            <i className="fa fa-github" aria-hidden="true"/></a>
+        </div>
         
       </div>
     );

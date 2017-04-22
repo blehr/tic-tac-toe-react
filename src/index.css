@@ -38,8 +38,8 @@ body {
   width: 300px;
   height: 300px;
   top: 100%;
-  color: #FFF;
-  background-color: rgba(0,0,0,.95);
+  color: rgba(255,255,255, 0.9);
+  background-color: #222;
   transition: all 1s;
   z-index: 5;
   border-radius: 15px;
@@ -56,7 +56,7 @@ body {
   padding: 5px 8px;
   background-color: transparent;
   font-size: 24px;
-  color: #FFF;
+  color: rgba(255,255,255, 0.9);
 }
 
 .fa {
@@ -64,7 +64,7 @@ body {
 }
 
 .reset-button:hover {
-  border-color: green;
+  border-color: #09e510;
 }
 
 #sp4, #sp5, #sp6 {
@@ -78,65 +78,42 @@ body {
   box-shadow: 1px 0 0 0 #09e510, -1px 0 0 0 #09e510;
 }
 
-#sp2 {
-  /*animation: sp2 3s infinite ease-in-out;*/
+.tilt-left {
+  transform: rotate(-15deg);
 }
 
-#sp5 {
-  /*animation: sp5 3s infinite ease-in-out;*/
+.tilt-right {
+  transform: rotate(15deg);
 }
 
-#sp8 {
-  /*animation: sp8 3s infinite ease-in-out;*/
+.tilt-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 36px;
+  width: 320px;
+  margin: auto;
+  font-family: 'Roboto Slab', cursive;
+  font-weight: 700;
 }
 
-
-/*@keyframes sp2 {
-  from {
-    box-shadow: 1px 0 2px 0 1px #09e510, -1px 0 2px 0 -1px #09e510;
-  }
-  
-  75% {
-    border-left: 2px solid #039e08;
-    border-right: 2px solid #039e08;
-  }
-  
-  to {
-    border-left: 2px solid #039e08;
-    border-right: 2px solid #039e08;
-  }
+.tilt-header .fa {
+  color: rgba(255,255,255, 0.9);
+  font-size: 12px;
 }
 
-@keyframes sp5 {
-  from {
-    border-left: 2px solid #039e08;
-    border-right: 2px solid #039e08;
-  }
-  
-  75% {
-    border-left: 3px solid #09e510;
-    border-right: 3px solid #09e510;
-  }
-  
-  to {
-    border-left: 2px solid #039e08;
-    border-right: 2px solid #039e08;
-  }
+.github {
+  padding-top: 25px;
+  font-size: 24px;
 }
 
-@keyframes sp8 {
-  from {
-    border-left: 2px solid #039e08;
-    border-right: 2px solid #039e08;
-  }
-  
-  75% {
-    border-left: 2px solid #039e08;
-    border-right: 2px solid #039e08;
-  }
-  
-  to {
-    border-left: 3px solid #09e510;
-    border-right: 3px solid #09e510;
-  }
-}*/
+.github a,
+.github .fa {
+  color: rgba(255,255,255, 0.9);
+  text-decoration: none;
+}
+
+.github a:hover,
+.github .fa:hover {
+  color: #09e510;
+}
