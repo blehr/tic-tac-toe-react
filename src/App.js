@@ -239,13 +239,6 @@ class App extends Component {
     return (
       <div className="App">
         <div className="App-header">
-          <div className="tilt-header">
-            <p className="tilt-left">TIC</p>
-            <i className="fa fa-circle" aria-hidden="true"/>
-            <p className="tilt-right">TAC</p>
-            <i className="fa fa-circle" aria-hidden="true"/>
-            <p className="tilt-left">TOE</p>
-          </div>
         </div>
         <p className="App-intro">
           Please play responsibly. Keep hands and feet inside the ride at all times. May not be suitable for pregnant or nursing mothers. In case of rectal bleeding, discontinue use immediately. 
@@ -276,11 +269,6 @@ class App extends Component {
           
           
         </Board>
-        
-        <div className="github">
-          <a href="https://github.com/blehr/tic-tac-toe-react" >
-            <i className="fa fa-github" aria-hidden="true"/></a>
-        </div>
         
       </div>
     );
