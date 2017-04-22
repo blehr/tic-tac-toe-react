@@ -68,15 +68,13 @@ body {
 }
 
 #sp4, #sp5, #sp6 {
-  border-bottom: 2px solid #09e510;
-  border-top: 2px solid #09e510;
-  box-shadow: 0 1px 0 0 #09e510, 0 -1px 0 0 #09e510;
+  border-bottom: 3px solid #09e510;
+  border-top: 3px solid #09e510;
 }
 
 #sp2, #sp5, #sp8 {
-  border-left: 2px solid #09e510;
-  border-right: 2px solid #09e510;
-  box-shadow: 1px 0 0 0 #09e510, -1px 0 0 0 #09e510;
+  border-left: 3px solid #09e510;
+  border-right: 3px solid #09e510;
 }
 
 .tilt-left {
