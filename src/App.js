@@ -2,90 +2,13 @@ import React, { Component } from 'react';
 import Board from './components/board';
 import Square from './components/square';
 import PlayAgain from './components/play_again';
+import {
+  winArr,
+  initialState,
+  randomChoice
+} from './utils';
+
 import './App.css';
-
-
-const winArr = [
-  [1, 2, 3],
-  [4, 5, 6],
-  [7, 8, 9],
-  [1, 4, 7],
-  [2, 5, 8],
-  [3, 6, 9],
-  [1, 5, 9],
-  [3, 5, 7]  
-];
-
-const cornerSpacesIds = [1, 3, 7, 9];
-const spacesIds = [1,2,3,4,5,6,7,8,9];
-const spacesArr = [
-  {
-    id: 1,
-    played: false,
-    image: '',
-    owned: null
-  },
-  {
-    id: 2,
-    played: false,
-    image: '',
-    owned: null
-  },
-  {
-    id: 3,
-    played: false,
-    image: '',
-    owned: null
-  },
-  {
-    id: 4,
-    played: false,
-    image: '',
-    owned: null
-  },
-  {
-    id: 5,
-    played: false,
-    image: '',
-    owned: null
-  },
-  {
-    id: 6,
-    played: false,
-    image: '',
-    owned: null
-  },
-  {
-    id: 7,
-    played: false,
-    image: '',
-    owned: null
-  },
-  {
-    id: 8,
-    played: false,
-    image: '',
-    owned: null
-  },
-  {
-    id: 9,
-    played: false,
-    image: '',
-    owned: null
-  }
-];
-
-const initialState = {
-  spaces: spacesArr,
-  openSpaces: spacesIds,
-  corners: cornerSpacesIds,
-  turn: false,
-  computerMarkArr: [],
-  playerMarkArr: [],
-  tie: false,
-  win: false,
-  start: false
-};
 
 
 class App extends Component {
@@ -105,52 +28,6 @@ class App extends Component {
     this.setState({
       start: true
     }, this.computerTurn);
-  }
-  
-  beatPlayer() {
-    let tempArr = [];
-    let beatPos = '';
-    winArr.forEach(win => {
-      tempArr.length = 0;
-      this.state.computerMarkArr.forEach(pos => {
-        if (win.indexOf(pos) !== -1) {
-          tempArr.push(pos);
-          if (tempArr.length === 2) {
-            win.forEach(winPos => {
-              if (tempArr.indexOf(winPos) === -1) {
-                if (this.state.openSpaces.indexOf(winPos) !== -1) {
-                  beatPos = winPos;
-                }
-              }
-            });
-          }
-        }
-      });
-    });
-    return beatPos;
-  }
-   
-  blockPlayer() {
-    let tempArr = [];
-    let blockPos = '';
-    winArr.forEach(win => {
-      tempArr.length = 0;
-      this.state.playerMarkArr.forEach(pos => {
-        if (win.indexOf(pos) !== -1) {
-          tempArr.push(pos);
-          if (tempArr.length === 2) {
-            win.forEach(winPos => {
-              if (tempArr.indexOf(winPos) === -1) {
-                if (this.state.openSpaces.indexOf(winPos) !== -1) {
-                  blockPos = winPos;
-                }
-              }
-            });
-          }
-        }
-      });
-    });
-    return blockPos;
   }
   
   checkForWin(arr) {
@@ -175,31 +52,14 @@ class App extends Component {
     }
   }
   
-  randomChoice(arr) {
-    let mark;
-    const beatPos = this.beatPlayer();
-    const blockPos = this.blockPlayer();
-    if (beatPos) {
-      mark = beatPos;
-    } else {
-      
-      if (blockPos) {
-        mark = blockPos;
-      } else {
-        var arrPos = Math.floor(Math.random() * (arr.length - 1 - 0 + 1)) + 0;
-        mark = arr[arrPos];
-      }
-    }
-    return mark;
-  }
 
   computerTurn() {
     let id;
     setTimeout(() => {
       
       id = this.state.computerMarkArr.length < 3 ?
-        this.randomChoice(this.state.corners) :
-        this.randomChoice(this.state.openSpaces);
+        randomChoice(this.state.corners, this.state) :
+        randomChoice(this.state.openSpaces, this.state);
       
       this.setState({
         spaces: [
